@@ -6,11 +6,11 @@ package basil;
 
 /**
  *
- * @author titou
+ * @author lisa et baptiste
  */
 public class Grille {
     Carte CellulesJeu [][]=new Carte [6][8];
-    
+
     
     public Grille (){
         CellulesJeu = new Carte [6][8];
@@ -23,18 +23,26 @@ public class Grille {
     
     public boolean CelluleVide(int i, int j){
         if (CellulesJeu[i][j]==null){
-            System.out.println("Veuillez sélectionner une autre carte");
+            System.out.println("Veuillez sélectionner une autre case");
         }
             return false;
     }
     
-    public void RemplirGrille(){
-        for (int i=0; i<=5; i++){
-            for (int j=0; j<=7;j++){
-                CellulesJeu[i][j].CarteCourante != null;
+    public boolean RemplirGrille(int i, int j){
+        if(CellulesJeu[i][j].CarteCourante== false){
+                    return true;
+                }
+           return false;
             }
         
-    }
+    
 
+    
+    public void afficherGrilleSurConsole (){
+        for (int i=0; i<=6; i++){
+            for (int j=0; j<= 7; j++){
+                System.out.print(""+ CellulesJeu[i][j].lireMotif()+ "");
+            }System.out.println();
+        }
     }
 }

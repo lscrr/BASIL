@@ -6,12 +6,13 @@ package basil;
 
 /**
  *
- * @author titou
+ * @author lisa et baptiste
  */
 public class Joueur {
     String Nom;
     int PointsCartes;
     Carte [] listeCartes;
+    
     public Joueur (String unNom){
         Nom=unNom;
     }

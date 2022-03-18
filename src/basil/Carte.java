@@ -6,13 +6,13 @@ package basil;
 
 /**
  *
- * @author titou
+ * @author lisa et baptiste
  */
 public class Carte {
     String motif;
     boolean visibilité;
-    int nbpoints =0;
     boolean CarteCourante;
+    int nbpoints =0;
     boolean etreJoker;
     boolean etreJokpasnul;
     boolean etreJoknul;
