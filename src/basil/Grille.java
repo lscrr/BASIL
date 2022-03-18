@@ -9,13 +9,14 @@ package basil;
  * @author titou
  */
 public class Grille {
-    Cellule CellulesJeu [][]=new Cellule[6][8];
+    Carte CellulesJeu [][]=new Carte [6][8];
+    
     
     public Grille (){
-        CellulesJeu = new Cellule [6][7];
+        CellulesJeu = new Carte [6][8];
         for (int i=0; i<=5; i++){
             for (int j=0; j<=7;j++){
-                CellulesJeu[i][j]= new Cellule();
+                CellulesJeu[i][j]= new Carte();
             }
         }
     }
@@ -27,5 +28,13 @@ public class Grille {
             return false;
     }
     
-    public void RemplirGrille
+    public void RemplirGrille(){
+        for (int i=0; i<=5; i++){
+            for (int j=0; j<=7;j++){
+                CellulesJeu[i][j].CarteCourante != null;
+            }
+        
+    }
+
+    }
 }
