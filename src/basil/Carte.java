@@ -9,13 +9,25 @@ package basil;
  * @author titou
  */
 public class Carte {
-    int cartesPaires;
-    int cartesTriples;
-    int nombreJoker;
-    int nombreJokPasNul;
-    int nombreJokNul;
-    public Carte (String Image){
-        
+    String motif;
+    boolean visibilité;
+    int nbpoints;
+    boolean etreJoker;
+    boolean etreJokpasnul;
+    boolean etreJoknul;
+    
+    
+    public String lireMotif(){
+        return motif;
+    }
+    
+    public boolean RetournerCarte(){
+        if (visibilité==false){
+            visibilité = true;
+        }else{
+            visibilité = false;
+        }
+        return false;
     }
 }
 
