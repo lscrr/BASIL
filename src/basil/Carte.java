@@ -40,14 +40,14 @@ public class Carte {
         }
         return true;
     }
-    public boolean etreJokpasnul(){
+    public boolean etreJokPasNul(){
         nbdeCartes=2;
         if (etreJokpasnul==true){
             nbpoints=-1;
         }
         return true;
     }
-    public boolean etreJoknul(){
+    public boolean etreJokNul(){
         nbdeCartes=2;
         if (etreJoknul==true){
             nbpoints=-2;
