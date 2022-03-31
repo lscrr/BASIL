@@ -10,6 +10,9 @@ package basil;
  */
 public class Grille {
     Carte CellulesJeu [][]=new Carte [6][8];
+    boolean Joker;
+    boolean JokNul;
+    boolean JokPasNul;
 
     
     public Grille (){
@@ -43,6 +46,32 @@ public class Grille {
             for (int j=0; j<= 7; j++){
                 System.out.print(""+ CellulesJeu[i][j].lireMotif()+ "");
             }System.out.println();
+        }
+    }
+    public boolean présenceJoker(int i, int j){
+        if (Joker==true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public boolean présenceJokNul(){
+        if (JokNul==true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+        
+    public boolean présenceJokpasnul(){
+        if (JokPasNul==true){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
