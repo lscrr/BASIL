@@ -8,6 +8,9 @@ package basil;
  *
  * @author lisa et baptiste
  */
+
+import java.util.Scanner;
+
 public class Grille {
     Carte CellulesJeu [][]=new Carte [6][8];
     boolean Joker;
@@ -72,6 +75,17 @@ public class Grille {
         }
         else{
             return false;
+        }
+    }
+    
+    public String RetournerCarte(){
+        int coo;
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Veuillez sélectionner des coordonnées" + sc);
+        coo=sc.nextInt();
+        //if (coo ==null){
+            System.out.println("Case vide: choissisez d'autres coordonnées");
+            
         }
     }
 }
