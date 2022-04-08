@@ -11,7 +11,6 @@ package basil;
 public class Joueur {
     String Nom;
     int PointsCartes;
-    Carte [] listeCartes;
     int valeurduDe;
     
     public Joueur (String unNom){

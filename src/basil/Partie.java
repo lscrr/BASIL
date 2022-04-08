@@ -14,9 +14,9 @@ public class Partie {
     
     Joueur [] ListeJoueurs= new Joueur[2];
     Joueur joueurCourant;
-    String carte1;
-    String carte2;
-    
+    Grille carte1;
+    Grille carte2;
+    Grille grilleJeu= new Grille ();
     
     public Partie (Joueur J1, Joueur J2){
         ListeJoueurs[0] = J1;
@@ -26,7 +26,7 @@ public class Partie {
     
     
     public void intialiserPartie(){
-        Grille grilleJeu= new Grille ();
+       
         System.out.println(joueurCourant+ " Lancer le dé");
         joueurCourant.lancerDe();
     }
@@ -35,19 +35,26 @@ public class Partie {
         boolean coupValide= false;
         int col=-1;
         int lig=-1;
+        int col2=-1;
+        int lig2=-1;
         joueurCourant=ListeJoueurs[0];
         Scanner sc1 = new Scanner (System.in);
         Scanner sc2 = new Scanner (System.in);
+        Scanner sc3 = new Scanner (System.in);
+        Scanner sc4 = new Scanner (System.in);
         // le joueur sélectionne la carte à retourner
         System.out.println ("Veuillez séléctionner une colonne"+ sc1);
         System.out.println ("Veuillez sélectionner une ligne" + sc2);
         col=sc1.nextInt();
         lig= sc2.nextInt();
-        
-        
-                
-        carte1= joueurCourant.; // Retourner la première carte
-        carte2= joueurCourant; // retourner la seconde carte
+        carte1.RetournerCarte(col, lig);
+        System.out.println("A présent vous allez choisir la deuxième carte");
+        System.out.println ("Veuillez séléctionner une colonne"+ sc3);
+        System.out.println ("Veuillez sélectionner une ligne" + sc4);
+        col2=sc3.nextInt();
+        lig2= sc4.nextInt();
+        carte2.RetournerCarte(col2, lig2);
+
         if (carte1==carte2){
             
         }
