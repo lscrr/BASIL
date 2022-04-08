@@ -56,9 +56,11 @@ public class Partie {
         carte2.RetournerCarte(col2, lig2);
 
         if (carte1==carte2){
-            
+            joueurCourant.PointsCartes += 2;
+            carte1 = null;
+            carte2= null;
         }
-            
+        
         /**  Scanner sc = new Scanner (System.in);
         System.out.println("Veuillez sélectionner des coordonnées" + sc);
         coo=sc.nextInt();
