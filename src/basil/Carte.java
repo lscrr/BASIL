@@ -23,7 +23,7 @@ public class Carte {
         return motif;
     }
     
-    public boolean RetournerCarte(){
+    public boolean CarteVisible(){
         if (visibilité==false){
             visibilité = true;
         }

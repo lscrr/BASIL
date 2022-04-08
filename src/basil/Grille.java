@@ -9,7 +9,7 @@ package basil;
  * @author lisa et baptiste
  */
 
-import java.util.Scanner;
+
 
 public class Grille {
     Carte CellulesJeu [][]=new Carte [6][8];
@@ -78,14 +78,15 @@ public class Grille {
         }
     }
     
-    public String RetournerCarte(){
-        int coo;
-        Scanner sc = new Scanner (System.in);
+    public String RetournerCarte(int x, int y){
+        CellulesJeu[x][y].CarteVisible();
+        return CellulesJeu[x][y].lireMotif();
+        } 
+    }
+}
+/**  Scanner sc = new Scanner (System.in);
         System.out.println("Veuillez sélectionner des coordonnées" + sc);
         coo=sc.nextInt();
         //if (coo ==null){
             System.out.println("Case vide: choissisez d'autres coordonnées");
             
-        }
-    }
-}
