@@ -12,14 +12,14 @@ package basil;
 
 
 public class Grille {
-    Carte CellulesJeu [][]=new Carte [6][8];
+    Carte CellulesJeu [][]=new Carte [8][6];
     boolean Joker;
     boolean JokNul;
     boolean JokPasNul;
 
     
     public Grille (){
-        CellulesJeu = new Carte [6][8];
+        CellulesJeu = new Carte [8][6];
         for (int i=0; i<=5; i++){
             for (int j=0; j<=7;j++){
                 CellulesJeu[i][j]= new Carte();
@@ -47,7 +47,7 @@ public class Grille {
     public void afficherGrilleSurConsole (){
         for (int i=0; i<=6; i++){
             for (int j=0; j<= 7; j++){
-                System.out.print(""+ CellulesJeu[i][j].lireMotif()+ "");
+                System.out.print(" "+ CellulesJeu[i][j].lireMotif()+ " ");
             }System.out.println();
         }
     }
@@ -82,11 +82,6 @@ public class Grille {
         CellulesJeu[x][y].CarteVisible();
         return CellulesJeu[x][y].lireMotif();
         } 
-    }
 }
-/**  Scanner sc = new Scanner (System.in);
-        System.out.println("Veuillez sélectionner des coordonnées" + sc);
-        coo=sc.nextInt();
-        //if (coo ==null){
-            System.out.println("Case vide: choissisez d'autres coordonnées");
+
             

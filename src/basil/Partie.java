@@ -14,7 +14,6 @@ public class Partie {
     
     Joueur [] ListeJoueurs= new Joueur[2];
     Joueur joueurCourant;
-    Grille grilleJeu;
     String carte1;
     String carte2;
     
@@ -27,7 +26,7 @@ public class Partie {
     
     
     public void intialiserPartie(){
-        grilleJeu= new Grille ();
+        Grille grilleJeu= new Grille ();
         System.out.println(joueurCourant+ " Lancer le dé");
         joueurCourant.lancerDe();
     }
@@ -35,17 +34,28 @@ public class Partie {
     public void débuterPartie(){
         boolean coupValide= false;
         int col=-1;
+        int lig=-1;
         joueurCourant=ListeJoueurs[0];
-        Scanner sc = new Scanner (System.in);
+        Scanner sc1 = new Scanner (System.in);
+        Scanner sc2 = new Scanner (System.in);
         // le joueur sélectionne la carte à retourner
-        System.out.println ("Veuillez séléctionner des coordonnées"+ sc);
-        col=sc.nextInt();
+        System.out.println ("Veuillez séléctionner une colonne"+ sc1);
+        System.out.println ("Veuillez sélectionner une ligne" + sc2);
+        col=sc1.nextInt();
+        lig= sc2.nextInt();
+        
+        
+                
         carte1= joueurCourant.; // Retourner la première carte
         carte2= joueurCourant; // retourner la seconde carte
         if (carte1==carte2){
             
         }
             
-       
+        /**  Scanner sc = new Scanner (System.in);
+        System.out.println("Veuillez sélectionner des coordonnées" + sc);
+        coo=sc.nextInt();
+        //if (coo ==null){
+            System.out.println("Case vide: choissisez d'autres coordonnées");**/
     }
 }
