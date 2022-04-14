@@ -13,6 +13,7 @@ package basil;
 
 public class Grille {
     Carte CellulesJeu [][]=new Carte [8][6];
+    Carte CarteCourante;
     boolean Joker;
     boolean JokNul;
     boolean JokPasNul;
@@ -27,6 +28,15 @@ public class Grille {
         }
     }
     
+    public  void GrilleVide (){
+        for (int i=0; i<= 7; i++){
+            for (int j=0; j<=5; j++){
+                CellulesJeu[i][j].CarteCourante=null;
+            }
+        }
+
+    }
+    
     public boolean CelluleVide(int i, int j){
         if (CellulesJeu[i][j]==null){
             System.out.println("Veuillez sélectionner une autre case");
@@ -35,7 +45,7 @@ public class Grille {
     }
     
     public boolean RemplirGrille(int i, int j){
-        if(CellulesJeu[i][j].CarteCourante== false){
+        if(CellulesJeu[i][j].CarteCourante== true){
                     return true;
                 }
            return false;
