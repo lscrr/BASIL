@@ -32,6 +32,7 @@ public class Partie {
     }
     
     public void débuterPartie(){
+        
         boolean coupValide= false;
         int col=-1;
         int lig=-1;
@@ -71,7 +72,7 @@ public class Partie {
             carte1 = null;   // la carte disparait 
             carte2= null;   // la carte disparait 
             
-            // Comment faire en sorte que le joueur courant puisse joueur de nouveau ??????????????
+            // Comment faire en sorte que le joueur courant puisse jouer de nouveau ??????????????
             
         }else if (carte1!= carte2){
             System.out.println("Dommage!");
@@ -94,7 +95,7 @@ public class Partie {
             
         }else{   //sinon le nombre de point du J1 est inférieur à celui du J2
             ga = ListeJoueurs[1]; // alors le gagnant est J2
-            per = ListeJoueurs[0]; // le perdant est J2
+            per = ListeJoueurs[0]; // le perdant est J1
             System.out.println("Félicitations " + ga + " vous avez gagné!");
             System.out.println(per + " Ne voulez pas prendre votre revanche? ");
         }
