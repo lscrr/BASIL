@@ -28,14 +28,15 @@ public class Grille {
         }
     }
     
-    public  void GrilleVide (){
+   /** public void GrilleVide (){
         for (int i=0; i<= 7; i++){
             for (int j=0; j<=5; j++){
-                CellulesJeu[i][j].CarteCourante=null;
+                CellulesJeu[i][j].CarteCourante = false;
+                
             }
         }
 
-    }
+    }**/
     
     public boolean CelluleVide(int i, int j){
         if (CellulesJeu[i][j]==null){
@@ -45,10 +46,10 @@ public class Grille {
     }
     
     public boolean RemplirGrille(int i, int j){
-        if(CellulesJeu[i][j].CarteCourante== true){
+        if(CellulesJeu[i][j].CarteCourante== true){ // si la cellule contient une carte alors on retourne vrai
                     return true;
                 }
-           return false;
+           return false; // sinon on retourne faux
             }
         
     
