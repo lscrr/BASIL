@@ -6,7 +6,7 @@ package basil;
 
 /**
  *
- * @author lisa carrié
+ * @author lisa et baptiste
  */
 public class Basil {
 
@@ -15,6 +15,15 @@ public class Basil {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       Joueur J1 = new Joueur ("Nom");
+       Joueur J2 = new Joueur ("Nom2");
+       
+       
+        Partie p= new Partie( J1, J2 );
+        p.intialiserPartie();
+        p.débuterPartie();
+        
     }
+    
     
 }

@@ -20,10 +20,9 @@ public class Grille {
 
     
     public Grille (){
-        CellulesJeu = new Carte [8][6];
         for (int i=0; i<=5; i++){
             for (int j=0; j<=7;j++){
-                CellulesJeu[i][j]= new Carte();
+                CellulesJeu[j][i]= new Carte();
             }
         }
     }
@@ -45,18 +44,24 @@ public class Grille {
             return false;
     }
     
-    public boolean RemplirGrille(int i, int j){
-        if(CellulesJeu[i][j].CarteCourante== true){ // si la cellule contient une carte alors on retourne vrai
+    public boolean RemplirGrille(){
+        for (int i=0; i<=5; i++){
+            for (int j=0; j<= 7; j++){
+                if(CellulesJeu[i][j].CarteCourante== true){ // si la cellule contient une carte alors on retourne vrai
                     return true;
                 }
-           return false; // sinon on retourne faux
+            // sinon on retourne faux
             }
+            }
+        return false;
+    }
+        
         
     
     public void afficherGrilleSurConsole (){
-        for (int i=0; i<=6; i++){
+        for (int i=0; i<=5; i++){
             for (int j=0; j<= 7; j++){
-                System.out.print(" "+ CellulesJeu[i][j].lireMotif()+ " ");
+                System.out.print(" " + CellulesJeu[j][i].lireMotif()+ " ");
             }System.out.println();
         }
     }

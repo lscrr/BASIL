@@ -24,12 +24,26 @@ public class Partie {
         
     }
     
-    
     public void intialiserPartie(){
+        String d ;
+        String c; 
+       Scanner nom1 = new Scanner (System.in);
+       Scanner nom2= new Scanner (System.in);
+       System.out.println ("Joueur 1, entrez un nom " + nom1);
+       d=nom1.nextLine();
+  
+       System.out.println ("Joueur 2, entrez un nom " +nom2);
+       c=nom2.nextLine();
        
-        System.out.println(joueurCourant+ " Lancer le dé");
-        joueurCourant.lancerDe();
-    }
+       grilleJeu.afficherGrilleSurConsole();
+       grilleJeu.RemplirGrille();
+    
+           }
+       //}
+       
+        //System.out.println(joueurCourant+ " Lancer le dé");
+        //joueurCourant.lancerDe();
+    //}
     
     public void débuterPartie(){
         
@@ -40,8 +54,10 @@ public class Partie {
         int lig2=-1;
         Joueur ga;
         Joueur per;
+        boolean jouer;
         
-        while (grilleJeu.RemplirGrille(col, lig)==false){  // tant que la grille n'est pas vide
+        joueurCourant = ListeJoueurs[0];
+        while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
             // col, lig faux ATTENTION!!!!!! à modifier 
     
         joueurCourant=ListeJoueurs[0];
@@ -53,36 +69,46 @@ public class Partie {
         
         // le joueur sélectionne la carte à retourner
         
-        System.out.println ("Veuillez séléctionner une colonne"+ sc1);  // on prend en compte les coordonnées sélectionnées par le joueur 
-        System.out.println ("Veuillez sélectionner une ligne" + sc2);
+        System.out.println ("Veuillez séléctionner une colonne" + sc1);  // on prend en compte les coordonnées sélectionnées par le joueur 
         col=sc1.nextInt();
+        System.out.println ("Veuillez sélectionner une ligne" + sc2);
         lig= sc2.nextInt();
         carte1.RetournerCarte(col, lig);  // carte 1 visible
-        System.out.println("A présent vous allez choisir la deuxième carte"); 
-        System.out.println ("Veuillez séléctionner une colonne"+ sc3); // on prend en compte les coordonnées sélectionnées par le joueur
-        System.out.println ("Veuillez sélectionner une ligne" + sc4);
         
+        System.out.println("A présent vous allez choisir la deuxième carte"); 
+        
+        
+        System.out.println ("Veuillez séléctionner une colonne" + sc3); // on prend en compte les coordonnées sélectionnées par le joueur
         col2=sc3.nextInt();
+        System.out.println ("Veuillez sélectionner une ligne" + sc4);
         lig2= sc4.nextInt();
         carte2.RetournerCarte(col2, lig2); // carte 2 visible 
-
-        if (carte1==carte2){
-            System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
-            joueurCourant.PointsCartes += 2;
-            carte1 = null;   // la carte disparait 
-            carte2= null;   // la carte disparait 
-            
+        
+        while (jouer = true){ 
+            if (carte1==carte2){
+                System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
+                joueurCourant.PointsCartes += 2;
+                carte1 = null;   // la carte disparait 
+                carte2= null;   // la carte disparait 
+             jouer = true;
             // Comment faire en sorte que le joueur courant puisse jouer de nouveau ??????????????
             
-        }else if (carte1!= carte2){
-            System.out.println("Dommage!");
-            joueurCourant.PointsCartes = 0; // le joueur prend 0 point
-            carte1.RetournerCarte(col, lig); // on retourne de nouveau la carte préalablement visible 
-            carte2.RetournerCarte(col2, lig2); 
+            } else if (carte1!= carte2){
+                System.out.println("Dommage!");
+                joueurCourant.PointsCartes = 0; // le joueur prend 0 point
+                carte1.RetournerCarte(col, lig); // on retourne de nouveau la carte préalablement visible 
+                carte2.RetournerCarte(col2, lig2); 
+                jouer = false;
         }
-        // place au joueur 2????
+        } // fin du while sur jouer
         
-        } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
+        // place au joueur 
+        if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
+            joueurCourant = ListeJoueurs[1];      // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
+        }else {
+            joueurCourant= ListeJoueurs[0];  // sinon J1 reste le joueur courant
+        }
+    } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
        
         if (ListeJoueurs[0].PointsCartes > ListeJoueurs[1].PointsCartes){ //si le nombre de point du J1 est supérieur à celui du J2
             ga= ListeJoueurs[0]; // alors le gagnant est J1
