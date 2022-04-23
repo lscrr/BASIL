@@ -47,7 +47,7 @@ public class Grille {
     public boolean RemplirGrille(){
         for (int i=0; i<=5; i++){
             for (int j=0; j<= 7; j++){
-                if(CellulesJeu[i][j].CarteCourante== true){ // si la cellule contient une carte alors on retourne vrai
+                if(CellulesJeu[j][i].CarteCourante== true){ // si la cellule contient une carte alors on retourne vrai
                     return true;
                 }
             // sinon on retourne faux
