@@ -19,6 +19,7 @@ public class Carte {
     int nbdeCartes;
     
     
+    
     public String lireMotif(){
         return motif;
     }
@@ -31,6 +32,10 @@ public class Carte {
             visibilité = false;
         }
         return false;
+    }
+    
+    public boolean RetournerLaCarteEnQuestion(){
+        CarteCourante.
     }
     
     public boolean etreJoker(){

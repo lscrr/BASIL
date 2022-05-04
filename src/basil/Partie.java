@@ -56,11 +56,11 @@ public class Partie {
         Joueur per;
         boolean jouer;
         
-        joueurCourant = ListeJoueurs[0];
+        //joueurCourant = ListeJoueurs[0];
         while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
             // col, lig faux ATTENTION!!!!!! à modifier 
     
-        joueurCourant=ListeJoueurs[0];
+      // joueurCourant=ListeJoueurs[0];
         
         Scanner sc1 = new Scanner (System.in);
         Scanner sc2 = new Scanner (System.in);
@@ -73,7 +73,7 @@ public class Partie {
         col=sc1.nextInt();
         System.out.println ("Veuillez sélectionner une ligne" + sc2);
         lig= sc2.nextInt();
-        carte1.RetournerCarte(col, lig);  // carte 1 visible
+        carte1.RetournerCarteDeCoordonneesXY(col, lig);  // carte 1 visible
         
         System.out.println("A présent vous allez choisir la deuxième carte"); 
         
@@ -82,7 +82,7 @@ public class Partie {
         col2=sc3.nextInt();
         System.out.println ("Veuillez sélectionner une ligne" + sc4);
         lig2= sc4.nextInt();
-        carte2.RetournerCarte(col2, lig2); // carte 2 visible 
+        carte2.RetournerCarteDeCoordonneesXY(col2, lig2); // carte 2 visible 
         
         while (jouer = true){ 
             if (carte1==carte2){
@@ -90,14 +90,18 @@ public class Partie {
                 joueurCourant.PointsCartes += 2;
                 carte1 = null;   // la carte disparait 
                 carte2= null;   // la carte disparait 
-             jouer = true;
+                jouer = true;
+                
+                
+                
+                
             // Comment faire en sorte que le joueur courant puisse jouer de nouveau ??????????????
             
             } else if (carte1!= carte2){
                 System.out.println("Dommage!");
                 joueurCourant.PointsCartes = 0; // le joueur prend 0 point
-                carte1.RetournerCarte(col, lig); // on retourne de nouveau la carte préalablement visible 
-                carte2.RetournerCarte(col2, lig2); 
+                carte1.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
+                carte2.RetournerCarteDeCoordonneesXY(col2, lig2);
                 jouer = false;
         }
         } // fin du while sur jouer
@@ -125,5 +129,5 @@ public class Partie {
             System.out.println("Félicitations " + ga + " vous avez gagné!");
             System.out.println(per + " Ne voulez pas prendre votre revanche? ");
         }
-    }
+    }// fin de débuter Partie
 }

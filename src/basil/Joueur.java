@@ -10,7 +10,8 @@ package basil;
  */
 public class Joueur {
     String Nom;
-    int PointsCartes =0; // au départ le joueur a 0 point
+    int PointsCartes=0; // au départ le joueur a 0 point
+  
     int valeurduDe;
     
     public Joueur (String unNom){
