@@ -75,9 +75,6 @@ public class Grille {
         CellulesJeu[5][5].motif = "W";
         CellulesJeu[6][5].motif = "X";
         CellulesJeu[7][5].motif = "X";
-       
- 
-        
     
         
     }
@@ -147,7 +144,6 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
-        CellulesJeu[x][y].CarteVisible();
         return CellulesJeu[x][y].lireMotif();
         } 
 }

@@ -11,15 +11,13 @@ package basil;
 public class Carte {
     String motif;
     boolean visibilité;
-    boolean CarteCourante;
+    int nbdeCartes;
     int nbpoints =0;
     boolean etreJoker;
     boolean etreJokpasnul;
     boolean etreJoknul;
-    int nbdeCartes;
     
-    
-    
+        
     public String lireMotif(){
         return motif;
     }
@@ -34,9 +32,9 @@ public class Carte {
         return false;
     }
     
-    public boolean RetournerLaCarteEnQuestion(){
-        CarteCourante.
-    }
+    //public boolean RetournerLaCarteEnQuestion(){
+        
+    //}
     
     public boolean etreJoker(){
         nbdeCartes=2;

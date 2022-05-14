@@ -14,8 +14,8 @@ public class Partie {
     
     Joueur [] ListeJoueurs= new Joueur[2];
     Joueur joueurCourant;
-    Grille carte1;
-    Grille carte2;
+    Carte carte1 = null;
+    Carte carte2= null;
     Grille grilleJeu= new Grille ();
     
     public Partie (Joueur J1, Joueur J2){
@@ -73,7 +73,7 @@ public class Partie {
         col=sc1.nextInt();
         System.out.println ("Veuillez sélectionner une ligne" + sc2);
         lig= sc2.nextInt();
-        carte1.RetournerCarteDeCoordonneesXY(col, lig);  // carte 1 visible
+        String motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig);  // carte 1 visible
         
         System.out.println("A présent vous allez choisir la deuxième carte"); 
         
@@ -82,26 +82,31 @@ public class Partie {
         col2=sc3.nextInt();
         System.out.println ("Veuillez sélectionner une ligne" + sc4);
         lig2= sc4.nextInt();
-        carte2.RetournerCarteDeCoordonneesXY(col2, lig2); // carte 2 visible 
+        String motifcarte2 = grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2); // carte 2 visible 
+        
+        
+          // place au joueur 
+        if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
+            joueurCourant = ListeJoueurs[1];      // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
+        }else {
+            joueurCourant= ListeJoueurs[0];  // sinon J1 reste le joueur courant
+        } 
         
         while (jouer = true){ 
-            if (carte1==carte2){
+            if (motifcarte1== motifcarte2){
                 System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
                 joueurCourant.PointsCartes += 2;
                 carte1 = null;   // la carte disparait 
                 carte2= null;   // la carte disparait 
                 jouer = true;
-                
-                
-                
-                
+    
             // Comment faire en sorte que le joueur courant puisse jouer de nouveau ??????????????
             
-            } else if (carte1!= carte2){
+            } else if (motifcarte1 != motifcarte2){
                 System.out.println("Dommage!");
-                joueurCourant.PointsCartes = 0; // le joueur prend 0 point
-                carte1.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
-                carte2.RetournerCarteDeCoordonneesXY(col2, lig2);
+                joueurCourant.PointsCartes += 0; // le joueur prend 0 point
+                motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
+                motifcarte2= grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2);
                 jouer = false;
         }
         } // fin du while sur jouer
@@ -112,6 +117,7 @@ public class Partie {
         }else {
             joueurCourant= ListeJoueurs[0];  // sinon J1 reste le joueur courant
         }
+        
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
        
         if (ListeJoueurs[0].PointsCartes > ListeJoueurs[1].PointsCartes){ //si le nombre de point du J1 est supérieur à celui du J2
