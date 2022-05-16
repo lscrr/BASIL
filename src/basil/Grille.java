@@ -29,7 +29,11 @@ public class Grille {
                 CellulesJeu[i][j]= new Carte();
             } 
         } 
-        
+        for (int x=0; x<=7; x++){
+            for (int y=0; y<=5;y++){
+                if (CellulesJeu[x][y].CarteVisible()== false){
+                    CellulesJeu[x][y].motif="-";
+                } else {
         CellulesJeu[0][0].motif = "A";
         CellulesJeu[1][0].motif = "A";
         CellulesJeu[2][0].motif = "B";
@@ -81,7 +85,10 @@ public class Grille {
     
        // if ()
     }
-    
+            }
+        }
+    }
+        
     public boolean CelluleVide(int i, int j){
         if (CellulesJeu[i][j]==null){
             System.out.println("Veuillez sélectionner une autre case");
@@ -100,7 +107,6 @@ public class Grille {
             }
         return false;
     }
-
     
     public void afficherGrilleSurConsole (){
         for (int i=0; i<=5; i++){
@@ -137,6 +143,7 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
+        CellulesJeu[x][y].CarteVisible() = true;
         return CellulesJeu[x][y].lireMotif();
         } 
 }
