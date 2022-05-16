@@ -29,15 +29,8 @@ public class Grille {
                 CellulesJeu[i][j]= new Carte();
             } 
         } 
-        for (int x=0; x<=7; x++){
-            for (int y=0; y<=5; y++){
-                if (CellulesJeu[x][y].)
-                CellulesJeu[x][y].motif = "-";
-                
-            }
-        } 
         
-       /** CellulesJeu[0][0].motif = "A";
+        CellulesJeu[0][0].motif = "A";
         CellulesJeu[1][0].motif = "A";
         CellulesJeu[2][0].motif = "B";
         CellulesJeu[3][0].motif = "B";
@@ -84,20 +77,10 @@ public class Grille {
         CellulesJeu[4][5].motif = "W";
         CellulesJeu[5][5].motif = "W";
         CellulesJeu[6][5].motif = "X";
-        CellulesJeu[7][5].motif = "X";*/
+        CellulesJeu[7][5].motif = "X";
     
-        
+       // if ()
     }
-    
-   /** public void GrilleVide (){
-        for (int i=0; i<= 7; i++){
-            for (int j=0; j<=5; j++){
-                CellulesJeu[i][j].CarteCourante = false;
-                
-            }
-        }
-
-    }**/
     
     public boolean CelluleVide(int i, int j){
         if (CellulesJeu[i][j]==null){
