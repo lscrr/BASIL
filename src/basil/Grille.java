@@ -107,6 +107,7 @@ public class Grille {
     }
     
     public void afficherGrilleSurConsole (){
+        System.out.println("affichage grille");
         for (int i=0; i<=5; i++){
             for (int j=0; j<= 7; j++){
                 System.out.print(" " + CellulesJeu[j][i].lireMotif()+ " ");
@@ -141,17 +142,9 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
-            //CellulesJeu[x][y].CarteVisible()=true;
-            //on réaffiche la nouvelle grille avec le x,y cette fois retournés
-            for (int i=0; i<=5; i++){
-                for (int j=0; j<= 7; j++){
-                    if ((i==x) && (j==y)) {
-                        System.out.println("X"); //elle est deja attribuée au moment ou on initialise la grille ==> la carte n'est juste aps visible
-                       
-                    }
-                    System.out.print(" " + CellulesJeu[j][i].lireMotif()+ " ");
-                }System.out.println();
-            }
+            
+            //on récupère le motif se trouvant en x,y et on le place dans la grille
+            
             return CellulesJeu[x][y].lireMotif();
             
         }

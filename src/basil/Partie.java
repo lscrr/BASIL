@@ -28,11 +28,11 @@ public class Partie {
         String d ;
         String c; 
        Scanner nom1 = new Scanner (System.in);
-       Scanner nom2= new Scanner (System.in);
-       System.out.println ("Joueur 1, entrez un nom " + nom1);
+       System.out.println ("Joueur 1, entrez un nom ");
        d=nom1.nextLine();
   
-       System.out.println ("Joueur 2, entrez un nom " +nom2);
+       Scanner nom2= new Scanner (System.in);
+       System.out.println ("Joueur 2, entrez un nom ");
        c=nom2.nextLine();
        
        grilleJeu.afficherGrilleSurConsole();
@@ -58,7 +58,7 @@ public class Partie {
         
         //joueurCourant = ListeJoueurs[0];
         while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
-            // col, lig faux ATTENTION!!!!!! à modifier 
+            
     
       // joueurCourant=ListeJoueurs[0];
         
@@ -69,28 +69,27 @@ public class Partie {
         
         // le joueur sélectionne la carte à retourner
         
-        System.out.println ("Veuillez séléctionner une colonne" + sc1);  // on prend en compte les coordonnées sélectionnées par le joueur 
+        System.out.println ("Veuillez séléctionner une colonne" );  // on prend en compte les coordonnées sélectionnées par le joueur 
         col=sc1.nextInt();
-        System.out.println ("Veuillez sélectionner une ligne" + sc2);
-        lig= sc2.nextInt();
-        String motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig);  // carte 1 visible
         
+        System.out.println ("Veuillez sélectionner une ligne" );
+        lig= sc2.nextInt();
+        
+        String motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig);  // motif de la carte 1 visible
+        System.out.println("la carte a été retournée");
+            
         System.out.println("A présent vous allez choisir la deuxième carte"); 
         
         
         System.out.println ("Veuillez séléctionner une colonne" + sc3); // on prend en compte les coordonnées sélectionnées par le joueur
         col2=sc3.nextInt();
+        
         System.out.println ("Veuillez sélectionner une ligne" + sc4);
         lig2= sc4.nextInt();
-        String motifcarte2 = grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2); // carte 2 visible 
         
+        String motifcarte2 = grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2); // motif de la carte 2 visible 
         
-          // place au joueur 
-        if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
-            joueurCourant = ListeJoueurs[1];      // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
-        }else {
-            joueurCourant= ListeJoueurs[0];  // sinon J1 reste le joueur courant
-        } 
+      
         
         while (jouer = true){ 
             if (motifcarte1== motifcarte2){
@@ -112,12 +111,12 @@ public class Partie {
         } // fin du while sur jouer
         
         // place au joueur 
-        if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
+          if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
             joueurCourant = ListeJoueurs[1];      // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
         }else {
             joueurCourant= ListeJoueurs[0];  // sinon J1 reste le joueur courant
         }
-        
+          
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
        
         if (ListeJoueurs[0].PointsCartes > ListeJoueurs[1].PointsCartes){ //si le nombre de point du J1 est supérieur à celui du J2

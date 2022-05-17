@@ -29,7 +29,7 @@ public class Carte {
         else{
             visibilité = false;
         }
-        return false;
+        return false; //on récupère l'état de visibilité de la carte
     }
     
     //public boolean RetournerLaCarteEnQuestion(){
