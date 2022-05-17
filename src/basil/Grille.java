@@ -141,8 +141,19 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
-        //CellulesJeu[x][y].CarteVisible()=true;
+            //CellulesJeu[x][y].CarteVisible()=true;
+            //on réaffiche la nouvelle grille avec le x,y cette fois retournés
+            for (int i=0; i<=5; i++){
+                for (int j=0; j<= 7; j++){
+                    if ((i==x) && (j==y)) {
+                        System.out.println("X"); //elle est deja attribuée au moment ou on initialise la grille ==> la carte n'est juste aps visible
+                       
+                    }
+                    System.out.print(" " + CellulesJeu[j][i].lireMotif()+ " ");
+                }System.out.println();
+            }
             return CellulesJeu[x][y].lireMotif();
+            
         }
         
 }
