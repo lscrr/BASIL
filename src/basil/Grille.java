@@ -17,7 +17,7 @@ public class Grille {
     boolean JokNul;
     boolean JokPasNul;
     String motif;
-    
+    int etat;
     
     //private final boolean [][] Grille;
     public Grille (){
@@ -28,12 +28,15 @@ public class Grille {
                 CellulesJeu[i][j]= new Carte();
             } 
         } 
+        
         for (int x=0; x<=7; x++){
             for (int y=0; y<=5;y++){
                 if (CellulesJeu[x][y].CarteVisible()== false){
                     CellulesJeu[x][y].motif="-";
+                    etat=0;
                     
                 } else {
+                    etat =1;
                     CellulesJeu[0][0].motif = "A";
                     CellulesJeu[1][0].motif = "A";
                     CellulesJeu[2][0].motif = "B";
@@ -142,6 +145,12 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
+        
+        if (CellulesJeu[x][y].motif =="-"){   // si le motif de la cellule est "-"
+            etat=1;  //alors son état est de 1
+            
+}
+                
             
             //on récupère le motif se trouvant en x,y et on le place dans la grille
             
