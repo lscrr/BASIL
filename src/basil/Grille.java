@@ -145,13 +145,10 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
-        
+          String motif1;
         if (CellulesJeu[x][y].motif == "-"){   // si le motif de la cellule est "-"
             etat=1;  //alors son état est de 1
-            return CellulesJeu[x][y].motif;
-            
-                    
-}
+            motif1 =CellulesJeu[x][y].motif;
                 
             
             //on récupère le motif se trouvant en x,y et on le place dans la grille
@@ -161,6 +158,6 @@ public class Grille {
         }
         
 }
-
+}
 
             
