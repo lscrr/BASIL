@@ -14,8 +14,6 @@ public class Partie {
     
     Joueur [] ListeJoueurs= new Joueur[2];
     Joueur joueurCourant;
-    Carte carte1 = null;
-    Carte carte2= null;
     Grille grilleJeu= new Grille ();
     
     public Partie (Joueur J1, Joueur J2){
@@ -27,13 +25,18 @@ public class Partie {
     public void intialiserPartie(){
         String d ;
         String c; 
+        
        Scanner nom1 = new Scanner (System.in);
-       System.out.println ("Joueur 1, entrez un nom ");
+       System.out.println ("Joueur 1, entrez un nom. ");
        d=nom1.nextLine();
+       ListeJoueurs[0].Nom= d;  // on affecte le nom sélectionné au joueur
+             
   
        Scanner nom2= new Scanner (System.in);
-       System.out.println ("Joueur 2, entrez un nom ");
+       System.out.println ("Joueur 2, entrez un nom.");
        c=nom2.nextLine();
+       ListeJoueurs[1].Nom = c; // on affecte le nom sélectionné au joueur
+       
        
        grilleJeu.afficherGrilleSurConsole();
        grilleJeu.RemplirGrille();
@@ -59,9 +62,13 @@ public class Partie {
         int cpt1 = 0;
         int PointsCartes;
         
-        //joueurCourant = ListeJoueurs[0];
+       
+        
         while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
-            
+                           var cpt_JC = 0 ;
+                           
+          joueurCourant = ListeJoueurs[0];
+          
         //joueurCourant=ListeJoueurs[0];
         while (jouer = true){ 
             
@@ -71,6 +78,7 @@ public class Partie {
         Scanner sc4 = new Scanner (System.in);
         
         // le joueur sélectionne la carte à retourner
+        System.out.println(joueurCourant.Nom+ " , à vous de jouer");
         
         System.out.println ("Veuillez séléctionner une colonne" );  // on prend en compte les coordonnées sélectionnées par le joueur 
         col=sc1.nextInt();
@@ -95,43 +103,41 @@ public class Partie {
         String motifcarte2 = grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2); // motif de la carte 2 visible 
         grilleJeu.afficherGrilleSurConsole(); // on réaffiche la grille avec la nouvelle carte retournée
       
-        var cpt = 0 ;
-        
-        
+
             if (motifcarte1== motifcarte2){
                 System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
-                cpt =  cpt + 2;
+                cpt_JC += 2;
                 //joueurCourant.PointsCartes +=2;
                 
-                System.out.println ("Vous avez " +cpt+ " points");
+                System.out.println ("Vous avez " +cpt_JC+ " points");
                 jouer = true;
     
             
             } else if (motifcarte1 != motifcarte2){
-                System.out.println("Dommage!");
+                System.out.println("Dommage! Vous ne remportez pas de points.");
                 //joueurCourant.PointsCartes +=0;
-                cpt += 0; // le joueur prend 0 point
+                cpt_JC += 0; // le joueur prend 0 point
                 motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
                 motifcarte2= grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2);
                 
-                System.out.println ("Vous avez " +cpt+ " points");
+                System.out.println ("Vous avez " +cpt_JC+ " points");
                 
-                grilleJeu.afficherGrilleSurConsole();
+                grilleJeu.afficherGrilleSurConsole(); // on affiche la nouvelle grille avec les cartes de nouveau faces cachées
                 
                 jouer = false;
         } 
         
-        } // fin du while sur jouer
-             // place au joueur 
-          if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
+         
+         
+                  // place au joueur 
+        if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
             joueurCourant = ListeJoueurs[1]; // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
-            //cpt=cpt1;
+            cpt_JC = cpt1;
         }else {
             joueurCourant= ListeJoueurs[0]; // sinon J1 reste le joueur courant
-            //cpt=cpt0;                   
+            cpt_JC = cpt0;                   
         }
-          
-      
+        }
           
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
         
