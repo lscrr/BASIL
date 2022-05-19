@@ -114,8 +114,9 @@ public class Partie {
     
             
             } else if (motifcarte1 != motifcarte2){
+                
                 System.out.println("Dommage! Vous ne remportez pas de points.");
-                //joueurCourant.PointsCartes +=0;
+
                 cpt_JC += 0; // le joueur prend 0 point
                 motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
                 motifcarte2= grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2);
@@ -126,28 +127,26 @@ public class Partie {
                 
                 jouer = false;
         } 
-        
-         
-         
+            
                   // place au joueur 
         if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
             joueurCourant = ListeJoueurs[1]; // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
-            cpt_JC = cpt1;
+            cpt1= cpt_JC;
         }else {
             joueurCourant= ListeJoueurs[0]; // sinon J1 reste le joueur courant
-            cpt_JC = cpt0;                   
+            cpt0 = cpt_JC;                   
         }
         }
           
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
         
-        if (ListeJoueurs[0].PointsCartes > ListeJoueurs[1].PointsCartes){ //si le nombre de point du J1 est supérieur à celui du J2
+        if (cpt0 > cpt1){ //si le nombre de point du J1 est supérieur à celui du J2
             ga= ListeJoueurs[0]; // alors le gagnant est J1
             per= ListeJoueurs[1]; // le perdant est J2
             System.out.println("Félicitations " + ga + " vous avez gagné!");
             System.out.println(per + " Ne voulez pas prendre votre revanche? ");
                 
-        }else if (ListeJoueurs[1].PointsCartes == ListeJoueurs[0].PointsCartes){ //si le nombre de point du J1 est ségal à celui du J2
+        }else if (cpt0 == cpt1){ //si le nombre de point du J1 est ségal à celui du J2
             System.out.println ( "Egalité! ");
             
         }else{   //sinon le nombre de point du J1 est inférieur à celui du J2
