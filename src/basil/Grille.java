@@ -22,7 +22,7 @@ public class Grille {
     
     //private final boolean [][] Grille;
     public Grille (){
-        //Grille=new boolean [7][5];
+
         for (int i=0; i<=7; i++){
             for (int j=0; j<=5;j++){
                 
@@ -39,13 +39,7 @@ public class Grille {
                 } else {
                     
                     etat =1;
-                   /** Random r = new Random();
-                    String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
-                    int n=r.nextInt(48);
-                    
-                    while (motif[n]=="0"){
-                        n=r.nextInt(48);
-                    }**/
+                  
                    String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
                     int n=tirage(motif);
                     CellulesJeu[0][0].motif = motif[n];
@@ -317,7 +311,8 @@ public class Grille {
             int n;
             n=(x+1)+y*8;
             CellulesJeu[x][y].motif = motif[n];
-           
+        } else {
+            CellulesJeu[x][y].motif ="-";
             
             //on récupère le motif se trouvant en x,y et on le place dans la grille
             

@@ -62,8 +62,9 @@ public class Partie {
         //joueurCourant = ListeJoueurs[0];
         while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
             
-      // joueurCourant=ListeJoueurs[0];
-        
+        //joueurCourant=ListeJoueurs[0];
+        while (jouer = true){ 
+            
         Scanner sc1 = new Scanner (System.in);
         Scanner sc2 = new Scanner (System.in);
         Scanner sc3 = new Scanner (System.in);
@@ -95,16 +96,16 @@ public class Partie {
         grilleJeu.afficherGrilleSurConsole(); // on réaffiche la grille avec la nouvelle carte retournée
       
         var cpt = 0 ;
-        while (jouer = true){ 
+        
+        
             if (motifcarte1== motifcarte2){
                 System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
-                cpt += 2;
+                cpt =  cpt + 2;
                 //joueurCourant.PointsCartes +=2;
                 
                 System.out.println ("Vous avez " +cpt+ " points");
                 jouer = true;
     
-            // Comment faire en sorte que le joueur courant puisse jouer de nouveau ??????????????
             
             } else if (motifcarte1 != motifcarte2){
                 System.out.println("Dommage!");
@@ -114,12 +115,14 @@ public class Partie {
                 motifcarte2= grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2);
                 
                 System.out.println ("Vous avez " +cpt+ " points");
+                
+                grilleJeu.afficherGrilleSurConsole();
+                
                 jouer = false;
         } 
         
         } // fin du while sur jouer
-        
-            // place au joueur 
+             // place au joueur 
           if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
             joueurCourant = ListeJoueurs[1]; // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
             //cpt=cpt1;
@@ -128,8 +131,10 @@ public class Partie {
             //cpt=cpt0;                   
         }
           
+      
+          
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
-       
+        
         if (ListeJoueurs[0].PointsCartes > ListeJoueurs[1].PointsCartes){ //si le nombre de point du J1 est supérieur à celui du J2
             ga= ListeJoueurs[0]; // alors le gagnant est J1
             per= ListeJoueurs[1]; // le perdant est J2
