@@ -57,11 +57,11 @@ public class Partie {
         boolean jouer;
         int cpt0 =0;
         int cpt1 = 0;
+        int PointsCartes;
         
         //joueurCourant = ListeJoueurs[0];
         while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
             
-    
       // joueurCourant=ListeJoueurs[0];
         
         Scanner sc1 = new Scanner (System.in);
@@ -94,35 +94,38 @@ public class Partie {
         String motifcarte2 = grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2); // motif de la carte 2 visible 
         grilleJeu.afficherGrilleSurConsole(); // on réaffiche la grille avec la nouvelle carte retournée
       
-        int cpt = 0 ;
+        var cpt = 0 ;
         while (jouer = true){ 
             if (motifcarte1== motifcarte2){
                 System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
                 cpt += 2;
-                carte1 = null;   // la carte disparait 
-                carte2= null;   // la carte disparait 
-                jouer = true;
+                //joueurCourant.PointsCartes +=2;
+                
                 System.out.println ("Vous avez " +cpt+ " points");
+                jouer = true;
     
             // Comment faire en sorte que le joueur courant puisse jouer de nouveau ??????????????
             
             } else if (motifcarte1 != motifcarte2){
                 System.out.println("Dommage!");
+                //joueurCourant.PointsCartes +=0;
                 cpt += 0; // le joueur prend 0 point
                 motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
                 motifcarte2= grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2);
-                jouer = false;
+                
                 System.out.println ("Vous avez " +cpt+ " points");
-        }
+                jouer = false;
+        } 
+        
         } // fin du while sur jouer
         
-        // place au joueur 
+            // place au joueur 
           if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
             joueurCourant = ListeJoueurs[1]; // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
-            cpt=cpt1;
+            //cpt=cpt1;
         }else {
             joueurCourant= ListeJoueurs[0]; // sinon J1 reste le joueur courant
-            cpt=cpt0;                   
+            //cpt=cpt0;                   
         }
           
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
@@ -132,7 +135,7 @@ public class Partie {
             per= ListeJoueurs[1]; // le perdant est J2
             System.out.println("Félicitations " + ga + " vous avez gagné!");
             System.out.println(per + " Ne voulez pas prendre votre revanche? ");
-            
+                
         }else if (ListeJoueurs[1].PointsCartes == ListeJoueurs[0].PointsCartes){ //si le nombre de point du J1 est ségal à celui du J2
             System.out.println ( "Egalité! ");
             
