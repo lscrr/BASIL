@@ -76,19 +76,21 @@ public class Partie {
         lig= sc2.nextInt();
         
         String motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig);  // motif de la carte 1 visible
+        grilleJeu.afficherGrilleSurConsole(); // on réaffiche la grille avec la nouvelle carte retournée
+      
         System.out.println("la carte a été retournée");
             
         System.out.println("A présent vous allez choisir la deuxième carte"); 
         
         
-        System.out.println ("Veuillez séléctionner une colonne" + sc3); // on prend en compte les coordonnées sélectionnées par le joueur
+        System.out.println ("Veuillez séléctionner une colonne"); // on prend en compte les coordonnées sélectionnées par le joueur
         col2=sc3.nextInt();
         
-        System.out.println ("Veuillez sélectionner une ligne" + sc4);
+        System.out.println ("Veuillez sélectionner une ligne");
         lig2= sc4.nextInt();
         
         String motifcarte2 = grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2); // motif de la carte 2 visible 
-        
+        grilleJeu.afficherGrilleSurConsole(); // on réaffiche la grille avec la nouvelle carte retournée
       
         
         while (jouer = true){ 

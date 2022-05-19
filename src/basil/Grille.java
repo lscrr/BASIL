@@ -8,6 +8,7 @@ package basil;
  *
  * @author lisa et baptiste
  */
+import java.util.Random;
 
 
 public class Grille {
@@ -16,8 +17,8 @@ public class Grille {
     boolean Joker;
     boolean JokNul;
     boolean JokPasNul;
-    String motif;
     int etat;
+    
     
     //private final boolean [][] Grille;
     public Grille (){
@@ -36,59 +37,222 @@ public class Grille {
                     etat=0;
                     
                 } else {
+                    
                     etat =1;
-                    CellulesJeu[0][0].motif = "A";
-                    CellulesJeu[1][0].motif = "A";
-                    CellulesJeu[2][0].motif = "B";
-                    CellulesJeu[3][0].motif = "B";
-                    CellulesJeu[4][0].motif = "C";
-                    CellulesJeu[5][0].motif = "C";
-                    CellulesJeu[6][0].motif = "D";
-                    CellulesJeu[7][0].motif = "D";
-                    CellulesJeu[0][1].motif = "E";
-                    CellulesJeu[1][1].motif = "E";
-                    CellulesJeu[2][1].motif = "F";
-                    CellulesJeu[3][1].motif = "F";
-                    CellulesJeu[4][1].motif = "G";
-                    CellulesJeu[5][1].motif = "G";
-                    CellulesJeu[6][1].motif = "H";
-                    CellulesJeu[7][1].motif = "H";
-                    CellulesJeu[0][2].motif = "I";
-                    CellulesJeu[1][2].motif = "I";
-                    CellulesJeu[2][2].motif = "J";
-                    CellulesJeu[3][2].motif = "J";
-                    CellulesJeu[4][2].motif = "K";
-                    CellulesJeu[5][2].motif = "K";
-                    CellulesJeu[6][2].motif = "L";
-                    CellulesJeu[7][2].motif = "L";
-                    CellulesJeu[0][3].motif = "M";
-                    CellulesJeu[1][3].motif = "M";
-                    CellulesJeu[2][3].motif = "N";
-                    CellulesJeu[3][3].motif = "N";
-                    CellulesJeu[4][3].motif = "O";
-                    CellulesJeu[5][3].motif = "O";
-                    CellulesJeu[6][3].motif = "P";
-                    CellulesJeu[7][3].motif = "P";
-                    CellulesJeu[0][4].motif = "Q";
-                    CellulesJeu[1][4].motif = "Q";
-                    CellulesJeu[2][4].motif = "R";
-                    CellulesJeu[3][4].motif = "R";
-                    CellulesJeu[4][4].motif = "S";
-                    CellulesJeu[5][4].motif = "S";
-                    CellulesJeu[6][4].motif = "T";
-                    CellulesJeu[7][4].motif = "T";
-                    CellulesJeu[0][5].motif = "U";
-                    CellulesJeu[1][5].motif = "U";
-                    CellulesJeu[2][5].motif = "V";
-                    CellulesJeu[3][5].motif = "V";
-                    CellulesJeu[4][5].motif = "W";
-                    CellulesJeu[5][5].motif = "W";
-                    CellulesJeu[6][5].motif = "X";
-                    CellulesJeu[7][5].motif = "X";
+                   /** Random r = new Random();
+                    String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
+                    int n=r.nextInt(48);
+                    
+                    while (motif[n]=="0"){
+                        n=r.nextInt(48);
+                    }**/
+                   String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
+                    int n=tirage(motif);
+                    CellulesJeu[0][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[1][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[2][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[3][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[4][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[5][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[6][0].motif =motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[7][0].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[0][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[1][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[2][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[3][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[4][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    
+                    CellulesJeu[5][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[6][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[7][1].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[0][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[1][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[2][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[3][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[4][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[5][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[6][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[7][2].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[0][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[1][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[2][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[3][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[4][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[5][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[6][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[7][3].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[0][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[1][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[2][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[3][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[4][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[5][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[6][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[7][4].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[0][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[1][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[2][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[3][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[4][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[5][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[6][5].motif = motif[n];
+                    motif[n]="0";
+                    
+                    n=tirage(motif);
+                    CellulesJeu[7][5].motif = motif[n];
+                    motif[n]="0";
     }
             }
         }
     }
+        public int tirage (String [] motif){
+            
+             Random r = new Random();
+                    
+                    int n=r.nextInt(48);
+                    
+                    while (motif[n]=="0"){
+                        n=r.nextInt(48);
+                    }
+                    return n;
+        }
         
     public boolean CelluleVide(int i, int j){
         if (CellulesJeu[i][j]==null){
@@ -146,16 +310,19 @@ public class Grille {
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
           String motif1;
+          
         if (CellulesJeu[x][y].motif == "-"){   // si le motif de la cellule est "-"
             etat=1;  //alors son état est de 1
-            motif1 =CellulesJeu[x][y].motif;
+            CellulesJeu[x][y].CarteVisible();
+            if (CellulesJeu[x][y].CarteVisible()== false){
+                    CellulesJeu[x][y].motif=motif[];
+            System.out.println(CellulesJeu[x][y].CarteVisible());
                 
             
             //on récupère le motif se trouvant en x,y et on le place dans la grille
             
-            return CellulesJeu[x][y].lireMotif();
-            
-        }
+           
+        }return CellulesJeu[x][y].lireMotif();         
         
 }
 }
