@@ -309,15 +309,15 @@ public class Grille {
     }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
-          String motif1;
+         
+          String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
           
         if (CellulesJeu[x][y].motif == "-"){   // si le motif de la cellule est "-"
             etat=1;  //alors son état est de 1
-            CellulesJeu[x][y].CarteVisible();
-            if (CellulesJeu[x][y].CarteVisible()== false){
-                    CellulesJeu[x][y].motif=motif[];
-            System.out.println(CellulesJeu[x][y].CarteVisible());
-                
+            int n;
+            n=(x+1)+y*8;
+            CellulesJeu[x][y].motif = motif[n];
+           
             
             //on récupère le motif se trouvant en x,y et on le place dans la grille
             

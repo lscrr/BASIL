@@ -24,10 +24,10 @@ public class Carte {
     
     public boolean CarteVisible(){
         if (visibilité==false){
-            visibilité = true;
+            visibilité = false;
         }
         else{
-            visibilité = false;
+            visibilité = true;
         }
         return visibilité; //on récupère l'état de visibilité de la carte
     }
