@@ -12,12 +12,11 @@ import java.util.Random;
 
 
 public class Grille {
+    
     Carte CellulesJeu [][]=new Carte [8][6];
-    Carte Carte;
     boolean Joker;
     boolean JokNul;
     boolean JokPasNul;
-    int etat;
     
     
     //private final boolean [][] Grille;
@@ -25,7 +24,6 @@ public class Grille {
 
         for (int i=0; i<=7; i++){
             for (int j=0; j<=5;j++){
-                
                 CellulesJeu[i][j]= new Carte();
             } 
         } 
@@ -34,19 +32,16 @@ public class Grille {
             for (int y=0; y<=5;y++){
                 if (CellulesJeu[x][y].CarteVisible()== false){
                     CellulesJeu[x][y].motif="-";
-                    etat=0;
-                    
+                        
                 } else {
-                    
-                    etat =1;
                   
                    String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
                     int n=tirage(motif);
-                    CellulesJeu[0][0].motif = motif[n];
+                    CellulesJeu[0][0].motif =motif[n];
                     motif[n]="0";
                     
                     n=tirage(motif);
-                    CellulesJeu[1][0].motif = motif[n];
+                    CellulesJeu[1][0].motif =motif[n];
                     motif[n]="0";
                     
                     n=tirage(motif);
@@ -241,7 +236,6 @@ public class Grille {
              Random r = new Random();
                     
                     int n=r.nextInt(48);
-                    
                     while (motif[n]=="0"){
                         n=r.nextInt(48);
                     }
@@ -275,42 +269,16 @@ public class Grille {
             }System.out.println();
         }
     }
-    public boolean présenceJoker(int i, int j){
-        if (Joker==true){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    
-    public boolean présenceJokNul(){
-        if (JokNul==true){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-        
-    public boolean présenceJokpasnul(){
-        if (JokPasNul==true){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
     
     public String RetournerCarteDeCoordonneesXY(int x, int y){
          
           String motif [] = {"A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "A", "B","C","D","E","F","G","H","I","J", "K", "L" ,"M","N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
           
         if (CellulesJeu[x][y].motif == "-"){   // si le motif de la cellule est "-"
-            etat=1;  //alors son état est de 1
             int n;
             n=(x+1)+y*8;
-            CellulesJeu[x][y].motif = motif[n];
+            
+            CellulesJeu[x][y].motif = motif[n-1];
         } else {
             CellulesJeu[x][y].motif ="-";
             

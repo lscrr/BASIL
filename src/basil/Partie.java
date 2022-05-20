@@ -58,17 +58,20 @@ public class Partie {
         Joueur ga;
         Joueur per;
         boolean jouer;
+        int cpt_JC = 0;
         int cpt0 =0;
         int cpt1 = 0;
         int PointsCartes;
         
        
         
+       
+        
         while (grilleJeu.RemplirGrille()==false){  // tant que la grille n'est pas vide
-                           var cpt_JC = 0 ;
-                           
+                                                    
           joueurCourant = ListeJoueurs[0];
           
+    
         //joueurCourant=ListeJoueurs[0];
         while (jouer = true){ 
             
@@ -107,9 +110,19 @@ public class Partie {
             if (motifcarte1== motifcarte2){
                 System.out.println("Félicitations vous avez trouvé la paire, vous gagnez 2 points!");
                 cpt_JC += 2;
+                
                 //joueurCourant.PointsCartes +=2;
                 
-                System.out.println ("Vous avez " +cpt_JC+ " points");
+                if (joueurCourant==ListeJoueurs[0]){
+                    cpt0+=cpt_JC;
+                    System.out.println (joueurCourant.Nom+ " ,vous avez " +cpt0+ " points");
+                }
+                else{
+                    cpt1+=cpt_JC;
+                    System.out.println (joueurCourant.Nom+ " ,vous avez " +cpt1+ " points");
+                }
+                
+
                 jouer = true;
     
             
@@ -121,7 +134,15 @@ public class Partie {
                 motifcarte1 = grilleJeu.RetournerCarteDeCoordonneesXY(col, lig); // on retourne de nouveau la carte préalablement visible 
                 motifcarte2= grilleJeu.RetournerCarteDeCoordonneesXY(col2, lig2);
                 
-                System.out.println ("Vous avez " +cpt_JC+ " points");
+                if (joueurCourant==ListeJoueurs[0]){
+                    cpt0+=cpt_JC;
+                    System.out.println (joueurCourant.Nom+ " ,vous avez " +cpt0+ " points");
+                }
+                else{
+                    cpt1+=cpt_JC;
+                    System.out.println (joueurCourant.Nom+ " ,vous avez " +cpt1+ " points");
+                }
+                
                 
                 grilleJeu.afficherGrilleSurConsole(); // on affiche la nouvelle grille avec les cartes de nouveau faces cachées
                 
@@ -129,13 +150,17 @@ public class Partie {
         } 
             
                   // place au joueur 
-        if (joueurCourant == ListeJoueurs[0]){  // si le joueur courant est le J1
-            joueurCourant = ListeJoueurs[1]; // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
-            cpt1= cpt_JC;
-        }else {
-            joueurCourant= ListeJoueurs[0]; // sinon J1 reste le joueur courant
-            cpt0 = cpt_JC;                   
+        if (jouer==false){
+            if (joueurCourant == ListeJoueurs[0]){
+                // si le joueur courant est le J1
+                joueurCourant = ListeJoueurs[1]; // alors on laisse la place au J2 qui deveint donc le nouveau joueur courant
+
+            }else {
+                joueurCourant= ListeJoueurs[0]; // sinon J1 reste le joueur courant
+
+            }
         }
+        cpt_JC = 0;
         }
           
     } // la grille est vide : on détermine le gagnant et le perdant (fin du while)
